@@ -7,7 +7,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './components/Home/Home.jsx';
+import Home from './components/Home/Home/Home.jsx';
 import Blog from './components/Blog/Blog.jsx';
 import Recipe from './components/Recipe/Recipe.jsx';
 
@@ -18,7 +18,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home/>
+        element: <Home/>,
+        // loader: ()=> fetch('http://localhost:5000/')
       },
       {
         path: '/blog',
