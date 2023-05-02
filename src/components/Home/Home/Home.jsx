@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import ChefDetails from '../ChefDetails/ChefDetails';
 import PopularFood from '../PopularFood/PopularFood';
+import CustomerReview from '../CustomerReview/CustomerReview';
 
 const Home = () => {
     // eslint-disable-next-line no-unused-vars
@@ -55,7 +56,12 @@ const Home = () => {
                 <PopularFood/>
             </div>
 
-            
+            <h1 className='text-center font-bold text-5xl my-4 text-white'>Customer <span className='text-yellow-400'>Review</span></h1>
+            <p className='text-center text-white'>When you think about world-renowned chefs, what’s the first name that comes to mind? Is it Ferran Adria? James Beard? Grant Achatz? Mario Batali?</p>
+
+            <div>
+                <CustomerReview/>
+            </div>
         </>
     );
 };
