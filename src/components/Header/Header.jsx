@@ -86,7 +86,7 @@ const Header = () => {
           </li>
         </ul>
 
-        <button className='bg-yellow-400 w-24 h-12 rounded-md text-white font-bold hover:bg-yellow-500'>Login</button>
+        <Link to='/login'><button className='bg-yellow-400 w-24 h-12 rounded-md text-white font-bold hover:bg-yellow-500'>Login</button></Link>
 
         {/* Mobile Responsive */}
         <div className='lg:hidden'>
