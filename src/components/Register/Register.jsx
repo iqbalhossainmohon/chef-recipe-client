@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from '../../firebase/firebase.config';
@@ -8,9 +8,12 @@ import app from '../../firebase/firebase.config';
 const auth = getAuth(app);
 
 const Register = () => {
+    // eslint-disable-next-line no-unused-vars
+    // const {createUser} = useContext(AuthContext)
+
+    
 
     const [error , setError] = useState('');
-
     // eslint-disable-next-line no-unused-vars
     const handleRegister =(event)=>{
         event.preventDefault();
