@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from '../../firebase/firebase.config';
@@ -9,9 +9,13 @@ const auth = getAuth(app);
 
 const Register = () => {
 
+    const [error , setError] = useState('');
+
     // eslint-disable-next-line no-unused-vars
     const handleRegister =(event)=>{
         event.preventDefault();
+
+        setError('');
         const from = event.target;
         const name = from.name.value;
         const email = from .email.value;
@@ -20,13 +24,21 @@ const Register = () => {
 
         console.log(name, email, password, photo);
 
+        if(!/.{6}/.test(password)){
+            setError('Please at list minimum six characters');
+            return;
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            setError('');
+            from.reset();
         })
         .catch(error =>{
-            console.error(error)
+            console.error(error.message);
+            setError(error.message);
         })
     }
     return (
@@ -51,6 +63,7 @@ const Register = () => {
                         Register
                     </button>
                     <br />
+                    <p className='text-red-600'>{error}</p>
 
                     <span>
                     Already Have an Account? <span className='text-warning'><Link to='/login'>Login</Link></span>
